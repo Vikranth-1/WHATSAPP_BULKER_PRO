@@ -1,0 +1,5 @@
+selenium>=4.10.0
+webdriver-manager
+flask
+flask-socketio
+eventlet

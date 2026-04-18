@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Bulk Messenger | Premium</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <h1>WhatsApp<span>Bulker</span></h1>
+            </div>
+            <div class="status-indicator">
+                <span id="connection-dot" class="dot"></span>
+                <span id="connection-status">Connecting...</span>
+            </div>
+        </header>
+
+        <main class="grid-layout">
+            <!-- Left Panel: Configuration -->
+            <section class="glass-card config-panel">
+                <div class="card-header">
+                    <h2>Configuration</h2>
+                    <p>Enter your details below</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="numbers">Phone Numbers (one per line)</label>
+                    <textarea id="numbers" placeholder="+1234567890&#10;+9876543210"></textarea>
+                    <small>Include country code without '+' or '00' if needed by your region.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Hi there! This is a test message."></textarea>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="min-delay">Min Delay (s)</label>
+                        <input type="number" id="min-delay" value="8" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="max-delay">Max Delay (s)</label>
+                        <input type="number" id="max-delay" value="15" min="2">
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="btn-launch" class="btn secondary">Launch Browser</button>
+                    <button id="btn-send" class="btn primary" disabled>Start Sending</button>
+                    <button id="btn-stop" class="btn danger" disabled>Stop</button>
+                </div>
+            </section>
+
+            <!-- Right Panel: Live Logs -->
+            <section class="glass-card log-panel">
+                <div class="card-header">
+                    <h2>Live Activity</h2>
+                    <div class="stats">
+                        <span id="stat-sent">0</span> Sent
+                    </div>
+                </div>
+
+                <div id="log-window" class="log-window">
+                    <div class="log-entry system">Welcome to WhatsApp Bulk Messenger.</div>
+                    <div class="log-entry system">1. Launch browser.</div>
+                    <div class="log-entry system">2. Scan QR code.</div>
+                    <div class="log-entry system">3. Start sending messages.</div>
+                </div>
+
+                <div class="card-footer">
+                    <button id="btn-clear" class="btn-text">Clear Logs</button>
+                    <button id="btn-close" class="btn-text danger">Close Browser</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Premium WhatsApp Automation Tool</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
